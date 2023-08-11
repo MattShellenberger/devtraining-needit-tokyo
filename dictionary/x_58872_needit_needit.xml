@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element audit="true" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+    <element audit="true" db_object_id="eafc00a597a03110f042b711f053afe9" extends="task" label="NeedIt" max_length="40" name="x_58872_needit_needit" type="collection">
+        <element label="FunctionalGroup" max_length="40" name="functionalgroup" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="This is how the final Team name will appear:" max_length="100" name="u_finalname" read_only="true" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="To which functional group should this Team be associated?" mandatory="true" max_length="40" name="u_funcgroup_1" type="string">
+            <choice>
+                <element inactive_on_update="false" label="PRJ - Projects" sequence="0" value="prj"/>
+                <element inactive_on_update="false" label="INV - Investments" sequence="1" value="inv"/>
+                <element inactive_on_update="false" label="FLD - Field" sequence="2" value="fld"/>
+                <element inactive_on_update="false" label="LOR - Lorelei" sequence="3" value="lor"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="What will be the name for the new Team?" mandatory="true" max_length="100" name="u_newname" type="string"/>
         <element attributes="edge_encryption_enabled=true" label="Other" max_length="40" name="u_other" type="string"/>
         <element label="Requested for" mandatory="true" max_length="32" name="u_requested_for" reference="sys_user" type="reference"/>
         <element attributes="edge_encryption_enabled=true" label="Requested for email" mandatory="true" max_length="40" name="u_requested_for_email" type="string"/>
@@ -10,6 +21,7 @@
                 <element inactive_on_update="false" label="Human Resources" sequence="2" value="hr"/>
             </choice>
         </element>
+        <element attributes="edge_encryption_enabled=true" label="What is the purpose or description for this Team?" mandatory="true" max_length="100" name="u_string_4" type="string"/>
         <element attributes="edge_encryption_enabled=true" choice="3" default="hr1" label="What needed" mandatory="true" max_length="40" name="u_what_needed" type="string">
             <choice>
                 <element inactive_on_update="false" label="Legal 1" sequence="0" value="legal1"/>
